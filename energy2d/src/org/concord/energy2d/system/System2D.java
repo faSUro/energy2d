@@ -337,9 +337,7 @@ public class System2D extends JApplet implements ManipulationListener {
     }
 
     public void runSteps(final int n) {
-        executeInThreadService(() -> {
-            // TODO
-        });
+        executeInThreadService(() -> model.runSteps(n));
     }
 
     public void stop() {

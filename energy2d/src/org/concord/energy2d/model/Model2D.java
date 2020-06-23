@@ -1668,6 +1668,33 @@ public class Model2D {
         }
     }
 
+    public void runSteps(final int n) {
+        checkPartPower();
+        checkPartRadiation();
+        refreshPowerArray();
+        if (!running) {
+            running = true;
+            for (int i = 0; i < n; i++) {
+                nextStep();
+                if (fatalErrorOccurred()) {
+                    notifyManipulationListeners(ManipulationEvent.STOP);
+                    notifyManipulationListeners(ManipulationEvent.FATAL_ERROR_OCCURRED);
+                    break;
+                }
+                if (tasks != null)
+                    tasks.run();
+            }
+            stop();
+            if (notifyReset) {
+                indexOfStep = 0;
+                reallyReset();
+                notifyReset = false;
+                // call view.repaint() to get rid of the residual pixels that are still calculated in nextStep()
+                notifyManipulationListeners(ManipulationEvent.REPAINT);
+            }
+        }
+    }
+
     public boolean fatalErrorOccurred() {
         return Float.isNaN(t[nx / 2][ny / 2]);
     }
