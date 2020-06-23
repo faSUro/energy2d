@@ -976,10 +976,27 @@ public class System2D extends JApplet implements ManipulationListener {
     }
 
     public static void main(final String[] args) {
-        EventQueue.invokeLater(() -> {
-            start(args);
-            Updater.download(box);
-        });
+        boolean withGui = false;
+        if (args.length == 0)
+            withGui = true;
+        else if (args[0].equals("--gui")) {
+            withGui = true;
+        } else if (!args[0].equals("--no-gui")) {
+            System.out.println("Invalid argument. Restart the program.");
+            System.exit(-1);
+        }
+
+        if (withGui) {
+            EventQueue.invokeLater(() -> {
+                start(args);
+                Updater.download(box);
+            });
+        } else {
+            EventQueue.invokeLater(() -> {
+                startWithoutGui(args);
+                Updater.download(box);
+            });
+        }
     }
 
     private static void start(final String[] args) {
@@ -1115,6 +1132,81 @@ public class System2D extends JApplet implements ManipulationListener {
                     Helper.showAbout(frame);
                     e.setHandled(true);
                 }
+
+            });
+        }
+
+        // if (!launchedByJWS)
+        // UpdateAnnouncer.showMessage(box);
+
+    }
+
+    private static void startWithoutGui(final String[] args) {
+
+        isApplet = false;
+
+        File testFile = new File(System.getProperty("user.dir"), "test.txt");
+        // can't use File.canWrite() to check if we can write a file to this folder. So we have to walk extra miles as follows.
+        try {
+            testFile.createNewFile();
+            testFile.delete();
+        } catch (Throwable e) {
+            appDirectoryWritable = false;
+        }
+
+        Locale.setDefault(Locale.US);
+
+        // detect if the app is launched via webstart just checking its class loader: SystemClassLoader or JnlpClassLoader.
+        ClassLoader cl = Thread.currentThread().getContextClassLoader();
+        if (!cl.equals(ClassLoader.getSystemClassLoader()))
+            launchedByJWS = true;
+
+        if (System.getProperty("os.name").startsWith("Mac")) {
+            System.setProperty("apple.laf.useScreenMenuBar", "true");
+            System.setProperty("com.apple.mrj.application.apple.menu.about.name", BRAND_NAME);
+        }
+
+        box = new System2D();
+
+        EventQueue.invokeLater(() -> {
+            if (args == null)
+                return;
+            String filePath = null;
+            if (launchedByJWS) {
+                if (args.length > 1)
+                    filePath = args[1];
+            } else {
+                if (args.length > 0)
+                    filePath = args[0];
+            }
+            if (filePath != null && filePath.toLowerCase().trim().endsWith(".e2d"))
+                box.loadFile(new File(filePath));
+        });
+
+        if (System.getProperty("os.name").startsWith("Mac")) {
+            Application app = new Application();
+            app.setEnabledPreferencesMenu(true);
+            app.addApplicationListener(new ApplicationAdapter() {
+
+                @Override
+                public void handleQuit(ApplicationEvent e) { }
+
+                @Override
+                public void handlePreferences(ApplicationEvent e) { }
+
+                @Override
+                public void handleOpenFile(final ApplicationEvent e) {
+                    EventQueue.invokeLater(() -> {
+                        String filePath = e.getFilename();
+                        if (filePath.toLowerCase().trim().endsWith(".e2d")) {
+                            box.loadFile(new File(filePath));
+                        }
+                    });
+                    e.setHandled(true);
+                }
+
+                @Override
+                public void handleAbout(ApplicationEvent e) { }
 
             });
         }
