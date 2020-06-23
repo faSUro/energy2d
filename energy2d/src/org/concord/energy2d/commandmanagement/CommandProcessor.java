@@ -10,7 +10,7 @@ public class CommandProcessor {
         _s2d = s2d;
     }
 
-    public String processCommand(String command) {
+    public String processCommand(String commandln) {
         return null;
     }
 
