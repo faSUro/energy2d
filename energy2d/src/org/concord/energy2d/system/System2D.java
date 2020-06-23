@@ -22,6 +22,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.Reader;
 import java.io.Writer;
+import java.net.SocketException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ import org.concord.energy2d.model.ParticleFeeder;
 import org.concord.energy2d.model.Sensor;
 import org.concord.energy2d.model.Thermometer;
 import org.concord.energy2d.model.Tree;
+import org.concord.energy2d.server.CommandServer;
 import org.concord.energy2d.util.MiscUtil;
 import org.concord.energy2d.view.Picture;
 import org.concord.energy2d.view.TextBox;
@@ -980,6 +982,17 @@ public class System2D extends JApplet implements ManipulationListener {
             start(args);
             Updater.download(box);
         });
+
+        /*
+         * This block starts the server thread, that allows to accept commands.
+         */
+        final int port = 8888;
+        try {
+            CommandServer server = new CommandServer(box, port);
+            server.start();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void start(final String[] args) {
