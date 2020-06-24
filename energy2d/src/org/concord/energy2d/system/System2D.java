@@ -502,7 +502,7 @@ public class System2D extends JApplet implements ManipulationListener {
             });
     }
 
-    void loadFile(File file) {
+    public void loadFile(File file) {
         setReloadButtonEnabled(true);
         if (file == null)
             return;
@@ -1004,10 +1004,20 @@ public class System2D extends JApplet implements ManipulationListener {
     }
 
     public static void main(final String[] args) {
+        emptyTempFiles(); //empty the temporary files folder at every boot
         EventQueue.invokeLater(() -> {
             start(args);
             Updater.download(box);
         });
+    }
+
+    public static final String TEMP_FILES_FOLDER = "energy2d/temp/";
+
+    private static void emptyTempFiles() {
+        File tempFilesDir = new File(TEMP_FILES_FOLDER);
+        for (File file : tempFilesDir.listFiles()) {
+            file.delete();
+        }
     }
 
     private static void start(final String[] args) {

@@ -15,7 +15,7 @@ public class RunCommand implements ICommand {
                 if (!s2d.isRunning()) {
                     long time = Long.parseLong(args);
                     s2d.run(time);
-                    return "The simulation ran for " + time + " seconds...";
+                    return "The simulation ran for " + time + " seconds.";
                 } else
                     return "The simulation is already running.";
 

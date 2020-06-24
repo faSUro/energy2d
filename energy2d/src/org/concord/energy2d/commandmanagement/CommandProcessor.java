@@ -1,8 +1,6 @@
 package org.concord.energy2d.commandmanagement;
 
-import org.concord.energy2d.commandmanagement.commands.RunCommand;
-import org.concord.energy2d.commandmanagement.commands.RunStepsCommand;
-import org.concord.energy2d.commandmanagement.commands.StopCommand;
+import org.concord.energy2d.commandmanagement.commands.*;
 import org.concord.energy2d.system.System2D;
 
 public class CommandProcessor {
@@ -30,6 +28,10 @@ public class CommandProcessor {
             return cmdExecutor.executeCommand(new RunStepsCommand(), cmdArgs);
         } else if (command.equalsIgnoreCase("stop")) {
             return cmdExecutor.executeCommand(new StopCommand(), cmdArgs);
+        } else if (command.equalsIgnoreCase("reset")) {
+            return cmdExecutor.executeCommand(new ResetCommand(), cmdArgs);
+        } else if (command.equalsIgnoreCase("load")) {
+            return cmdExecutor.executeCommand(new LoadCommand(), cmdArgs);
         } else {
             return "Command not found.";
         }
