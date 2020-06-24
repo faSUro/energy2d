@@ -996,6 +996,18 @@ public class System2D extends JApplet implements ManipulationListener {
                 startWithoutGui(args);
                 Updater.download(box);
             });
+            setClosingCommandListener();
+        }
+    }
+
+    private static void setClosingCommandListener() {
+        System.out.println("Insert any string to close Energy2D:");
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+        try {
+            if (input.readLine() != null)
+                System.exit(0);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
