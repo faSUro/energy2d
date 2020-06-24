@@ -1,8 +1,8 @@
-package org.concord.energy2d.commandmanagement.commands;
+package org.concord.energy2d.commandline.command;
 
-import org.concord.energy2d.commandmanagement.commands.exception.CommandFormatException;
-import org.concord.energy2d.commandmanagement.commands.exception.InexistentElementException;
-import org.concord.energy2d.commandmanagement.commands.exception.InexistentPropertyException;
+import org.concord.energy2d.commandline.command.exception.CommandFormatException;
+import org.concord.energy2d.commandline.command.exception.InexistentElementException;
+import org.concord.energy2d.commandline.command.exception.InexistentPropertyException;
 import org.concord.energy2d.model.Model2D;
 import org.concord.energy2d.model.Part;
 import org.concord.energy2d.model.Thermometer;

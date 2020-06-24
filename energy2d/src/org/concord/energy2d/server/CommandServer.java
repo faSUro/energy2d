@@ -1,6 +1,6 @@
 package org.concord.energy2d.server;
 
-import org.concord.energy2d.commandmanagement.CommandProcessor;
+import org.concord.energy2d.commandline.CommandProcessor;
 import org.concord.energy2d.system.System2D;
 
 import java.io.IOException;

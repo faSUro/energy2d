@@ -1,4 +1,4 @@
-package org.concord.energy2d.commandmanagement.commands;
+package org.concord.energy2d.commandline.command;
 
 import org.concord.energy2d.system.System2D;
 

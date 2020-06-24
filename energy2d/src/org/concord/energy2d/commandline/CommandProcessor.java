@@ -1,6 +1,6 @@
-package org.concord.energy2d.commandmanagement;
+package org.concord.energy2d.commandline;
 
-import org.concord.energy2d.commandmanagement.commands.*;
+import org.concord.energy2d.commandline.command.*;
 import org.concord.energy2d.system.System2D;
 
 public class CommandProcessor {
