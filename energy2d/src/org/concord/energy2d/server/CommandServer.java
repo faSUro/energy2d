@@ -10,12 +10,13 @@ import java.net.InetAddress;
 import java.net.SocketException;
 
 public class CommandServer extends Thread {
+    private static final int MAX_DATA = 4194304; //max data: 4MB
 
     private System2D _s2d;
     private DatagramSocket socket;
 
     public CommandServer(System2D s2d, int port) throws SocketException {
-        s2d = s2d;
+        _s2d = s2d;
         socket = new DatagramSocket(port);
     }
 
@@ -25,20 +26,21 @@ public class CommandServer extends Thread {
 
         while (true) {
             try {
-                byte[] buffer = new byte[4194304]; //max data: 4MB
+                byte[] buffer = new byte[MAX_DATA];
                 DatagramPacket request = new DatagramPacket(buffer, buffer.length);
                 socket.receive(request);
 
                 String command = new String(buffer, 0, request.getLength());
                 String answer = cmdProcessor.processCommand(command);
-                if (!answer.equals(null)) {
-                    InetAddress clientAddress = request.getAddress();
-                    int clientPort = request.getPort();
+                if (answer.equals(null))
+                    answer = "An error occurred.";
 
-                    byte[] bResult = answer.getBytes();
-                    DatagramPacket response = new DatagramPacket(bResult, bResult.length, clientAddress, clientPort);
-                    socket.send(response);
-                };
+                InetAddress clientAddress = request.getAddress();
+                int clientPort = request.getPort();
+
+                byte[] bResult = answer.getBytes();
+                DatagramPacket response = new DatagramPacket(bResult, bResult.length, clientAddress, clientPort);
+                socket.send(response);
             } catch (IOException e) {
                 e.printStackTrace();
             }

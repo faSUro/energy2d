@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.prefs.Preferences;
 
 import javax.swing.AbstractAction;
@@ -327,6 +328,10 @@ public class System2D extends JApplet implements ManipulationListener {
         System.out.println(BRAND_NAME + " initialized.");
     }
 
+    public boolean isRunning() {
+        return model.isRunning();
+    }
+
     void executeInThreadService(Runnable r) {
         if (threadService == null)
             threadService = Executors.newFixedThreadPool(1);
@@ -338,6 +343,27 @@ public class System2D extends JApplet implements ManipulationListener {
         executeInThreadService(() -> model.run());
     }
 
+    /**
+     * Runs the simulation for an arbitrary number of seconds.
+     * @param sec number of seconds to run
+     */
+    public void run(long sec) {
+        /*if (model.isRunning())
+            return;*/
+        view.setRunToggle(true);
+        executeInThreadService(() -> model.run());
+        try {
+            Thread.sleep(TimeUnit.SECONDS.toMillis(sec));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        stop();
+    }
+
+    /**
+     * Runs an arbitrary number of steps of the simulation.
+     * @param n number of steps to run
+     */
     public void runSteps(final int n) {
         executeInThreadService(() -> model.runSteps(n));
     }
@@ -982,17 +1008,6 @@ public class System2D extends JApplet implements ManipulationListener {
             start(args);
             Updater.download(box);
         });
-
-        /*
-         * This block starts the server thread, that allows to accept commands.
-         */
-        final int port = 8888;
-        try {
-            CommandServer server = new CommandServer(box, port);
-            server.start();
-        } catch (SocketException e) {
-            e.printStackTrace();
-        }
     }
 
     private static void start(final String[] args) {
@@ -1135,6 +1150,20 @@ public class System2D extends JApplet implements ManipulationListener {
         // if (!launchedByJWS)
         // UpdateAnnouncer.showMessage(box);
 
+        runServer();
+    }
+
+    /**
+     * Starts the server thread, that allows to accept commands.
+     */
+    private static void runServer() {
+        final int port = 8888;
+        try {
+            CommandServer server = new CommandServer(box, port);
+            server.start();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
     }
 
     private void run2() {
