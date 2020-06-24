@@ -32,6 +32,8 @@ public class CommandProcessor {
             return cmdExecutor.executeCommand(new ResetCommand(), cmdArgs);
         } else if (command.equalsIgnoreCase("load")) {
             return cmdExecutor.executeCommand(new LoadCommand(), cmdArgs);
+        } else if (command.equalsIgnoreCase("get")) {
+            return cmdExecutor.executeCommand(new GetCommand(), cmdArgs);
         } else {
             return "Command not found.";
         }
