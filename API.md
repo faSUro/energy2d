@@ -46,10 +46,16 @@ E.g.: a valid UID for a thermometer could be "THERMOMETER100", while "THERMO100"
   The element is indicated by its UID, with the possibility to use a keyword that refers to all of the elements of a given type.
   The property must be one possessed by the indicated element.
   
+  E.g.: "get THERMOMETER100.temperature" returns the current temperature of THERMOMETER100.
+  
   #### Supported elements (with keywords) and properties
   
   - Element: Thermometer. Keyword: allthermometers. Properties: temperature, temperature_history.
   - ...
+  
+- **set [{element}.]{property}**
+
+  Set command explanation...
   
   
   
