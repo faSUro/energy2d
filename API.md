@@ -46,17 +46,38 @@ E.g.: a valid UID for a thermometer could be "THERMOMETER100", while "THERMO100"
   The element is indicated by its UID, with the possibility to use a keyword that refers to all of the elements of a given type.
   The property must be one possessed by the indicated element.
   
-  E.g.: "get THERMOMETER100.temperature" returns the current temperature of THERMOMETER100.
+  E.g.: 
   
-  #### Supported elements (with keywords) and properties
+    "get THERMOMETER100.temperature" returns the current temperature of THERMOMETER100.
   
-  - Element: Thermometer. Keyword: allthermometers. Properties: temperature, temperature_history.
-  - ...
+    "get allthermometers.temperature_history" returns the temperature history (time + temperature) of all thermometers.
   
-- **set [{element}.]{property}**
+- **set [{element}.]{property} {new_value}**
 
-  Set command explanation...
+  Allows to modify the value of a property.
   
+  If the command uses the format "set {property} {new_value}", it refers to global properties of the simulation, such as the steplength.
+  The command also permits the format "set {element}.{property} {new_value}", in order to change the property value of a specific element (same rules as get command).
+  Of course, the new_value argument must be consistent with the indicated property.
+  
+  Anyhow, the command will return a message to confirm the operation result.
+  
+  E.g.: 
+  
+    "set steplength 50" sets the steplength to 50.
+  
+    "set HEATER20.power 200" sets the power density of HEATER20 to 200.
+  
+## Supported elements (with keywords) and properties
+  
+- Element: Thermometer. Keyword: allthermometers. Properties: temperature, temperature_history.
+- Element: Power source. Keyword: /. Properties:  power.
+- ...
+
+## Global properties
+
+- steplength
+- ...
   
   
   
