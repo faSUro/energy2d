@@ -1020,6 +1020,8 @@ public class System2D extends JApplet implements ManipulationListener {
         }
     }
 
+    private static final String CONDOSIM_PATH = "energy2d/condosim/condosim.e2d";
+
     private static void start(final String[] args) {
 
         isApplet = false;
@@ -1098,16 +1100,8 @@ public class System2D extends JApplet implements ManipulationListener {
 
             public void windowOpened(WindowEvent e) {
                 EventQueue.invokeLater(() -> {
-                    if (args == null)
-                        return;
-                    String filePath = null;
-                    if (launchedByJWS) {
-                        if (args.length > 1)
-                            filePath = args[1];
-                    } else {
-                        if (args.length > 0)
-                            filePath = args[0];
-                    }
+                    String filePath = CONDOSIM_PATH;
+
                     if (filePath != null && filePath.toLowerCase().trim().endsWith(".e2d")) {
                         box.loadFile(new File(filePath));
                         menuBar.e2dFileChooser.rememberFile(filePath);
