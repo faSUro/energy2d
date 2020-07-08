@@ -769,41 +769,25 @@
 <cloud x="20.957272" y="11.88771" width="5.027933" height="1.424581" speed="0.001"/>
 </environment>
 <sensor>
-<thermometer uid="THERMOMETER 2.3" x="31.0" y="48.5"/>
+<thermometer uid="THERMOMETER23" x="31.0" y="48.5"/>
 <thermometer uid="THERMOMETER_EXTERNAL" x="5.4" y="53.4"/>
-<thermometer uid="THERMOMETER 4.1" x="21.0" y="38.4"/>
-<thermometer uid="THERMOMETER 3.1" x="21.0" y="43.2"/>
-<thermometer uid="THERMOMETER 2.1" x="21.0" y="48.6"/>
+<thermometer uid="THERMOMETER41" x="21.0" y="38.4"/>
+<thermometer uid="THERMOMETER31" x="21.0" y="43.2"/>
+<thermometer uid="THERMOMETER21" x="21.0" y="48.6"/>
 <thermometer uid="THERMOMETER11" x="21.0" y="53.4"/>
-<thermometer uid="THERMOMETER 4.2" x="28.8" y="38.4"/>
-<thermometer uid="THERMOMETER 3.2" x="28.8" y="43.2"/>
-<thermometer uid="THERMOMETER 2.2" x="28.8" y="48.6"/>
-<thermometer uid="THERMOMETER 1.2" x="28.8" y="53.4"/>
-<thermometer uid="THERMOMETER 4.3" x="31.2" y="38.4"/>
-<thermometer uid="THERMOMETER 3.3" x="31.2" y="43.8"/>
-<thermometer uid="THERMOMETER 1.3" x="31.2" y="53.4"/>
-<thermometer uid="THERMOMETER 4.4" x="39.0" y="38.4"/>
-<thermometer uid="THERMOMETER 3.4" x="39.0" y="43.8"/>
-<thermometer uid="THERMOMETER 2.4" x="39.0" y="48.6"/>
-<thermometer uid="THERMOMETER 1.4" x="39.0" y="54.0"/>
+<thermometer uid="THERMOMETER42" x="28.8" y="38.4"/>
+<thermometer uid="THERMOMETER32" x="28.8" y="43.2"/>
+<thermometer uid="THERMOMETER22" x="28.8" y="48.6"/>
+<thermometer uid="THERMOMETER12" x="28.8" y="53.4"/>
+<thermometer uid="THERMOMETER43" x="31.2" y="38.4"/>
+<thermometer uid="THERMOMETER33" x="31.2" y="43.2"/>
+<thermometer uid="THERMOMETER13" x="31.2" y="53.4"/>
+<thermometer uid="THERMOMETER44" x="39.0" y="38.4"/>
+<thermometer uid="THERMOMETER34" x="39.0" y="43.2"/>
+<thermometer uid="THERMOMETER24" x="39.0" y="48.6"/>
+<thermometer uid="THERMOMETER14" x="39.0" y="53.4"/>
 </sensor>
 <controller>
-<thermostat set_point="21.0" deadband="0.5" thermometer="THERMOMETER 2.3" power_source="HEATER23"/>
-<thermostat set_point="19.5" deadband="0.5" thermometer="THERMOMETER 4.1" power_source="HEATER41"/>
-<thermostat set_point="21.0" deadband="0.5" thermometer="THERMOMETER 3.1" power_source="HEATER31"/>
-<thermostat set_point="16.0" deadband="0.5" thermometer="THERMOMETER 2.1" power_source="HEATER21"/>
-<thermostat set_point="21.5" deadband="0.5" thermometer="THERMOMETER11" power_source="HEATER11"/>
-<thermostat set_point="20.0" deadband="0.5" thermometer="THERMOMETER 4.2" power_source="HEATER42"/>
-<thermostat set_point="20.5" deadband="0.5" thermometer="THERMOMETER 3.2" power_source="HEATER32"/>
-<thermostat set_point="23.0" deadband="0.5" thermometer="THERMOMETER 2.2" power_source="HEATER22"/>
-<thermostat set_point="20.0" deadband="0.5" thermometer="THERMOMETER 1.2" power_source="HEATER12"/>
-<thermostat set_point="20.5" deadband="0.5" thermometer="THERMOMETER 4.3" power_source="HEATER43"/>
-<thermostat set_point="20.0" deadband="0.5" thermometer="THERMOMETER 3.3" power_source="HEATER33"/>
-<thermostat set_point="22.0" deadband="0.5" thermometer="THERMOMETER 1.3" power_source="HEATER13"/>
-<thermostat set_point="21.0" deadband="0.5" thermometer="THERMOMETER 4.4" power_source="HEATER44"/>
-<thermostat set_point="19.5" deadband="0.5" thermometer="THERMOMETER 3.4" power_source="HEATER34"/>
-<thermostat set_point="20.5" deadband="0.5" thermometer="THERMOMETER 2.4" power_source="HEATER24"/>
-<thermostat set_point="16.0" deadband="0.5" thermometer="THERMOMETER 1.4" power_source="HEATER14"/>
 </controller>
 </model>
 <view>
