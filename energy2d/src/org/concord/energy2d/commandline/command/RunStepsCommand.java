@@ -9,7 +9,7 @@ public class RunStepsCommand implements ICommand {
         try {
             int steps = Integer.parseInt(args);
             s2d.runSteps(steps);
-            return "Simulation running " + steps + " steps.";
+            return "Simulation ran " + steps + " steps.";
         } catch (NumberFormatException e) {
             return "Wrong argument for \"runsteps\" command. Use this format: runsteps {steps}";
         }

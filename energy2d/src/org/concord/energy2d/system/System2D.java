@@ -28,9 +28,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.prefs.Preferences;
 
 import javax.swing.AbstractAction;
@@ -365,7 +363,17 @@ public class System2D extends JApplet implements ManipulationListener {
      * @param n number of steps to run
      */
     public void runSteps(final int n) {
-        executeInThreadService(() -> model.runSteps(n));
+        if (threadService == null)
+            threadService = Executors.newFixedThreadPool(1);
+
+        Future<?> future = threadService.submit(() -> model.runSteps(n));
+        try {
+            future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
     }
 
     public void stop() {

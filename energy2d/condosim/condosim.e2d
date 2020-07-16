@@ -9,7 +9,7 @@
 <tasks>
 <task uid="MOVE_SUN" script="set sunny true;-linebreak-movesun;" description="Move the sun" interval="100"/>
 </tasks>
-<sunny>true</sunny><sun_angle>-1.4980743</sun_angle>
+<sunny>true</sunny><sun_angle>-0.6399536</sun_angle>
 <solar_power_density>10000.0</solar_power_density>
 <solar_ray_count>24</solar_ray_count>
 <solar_ray_speed>0.01</solar_ray_speed>
@@ -374,7 +374,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER23</uid>
 <color>0</color>
 </part>
@@ -425,7 +424,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER34</uid>
 <color>0</color>
 </part>
@@ -459,7 +457,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER43</uid>
 <color>0</color>
 </part>
@@ -476,7 +473,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER33</uid>
 <color>0</color>
 </part>
@@ -510,7 +506,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER12</uid>
 <color>0</color>
 </part>
@@ -544,7 +539,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER32</uid>
 <color>0</color>
 </part>
@@ -595,7 +589,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER31</uid>
 <color>0</color>
 </part>
@@ -612,7 +605,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER21</uid>
 <color>0</color>
 </part>
@@ -765,8 +757,8 @@
 </part>
 </structure>
 <environment>
-<cloud x="21.752195" y="4.784916" width="8.044693" height="2.4301677" speed="0.001"/>
-<cloud x="20.957272" y="11.88771" width="5.027933" height="1.424581" speed="0.001"/>
+<cloud x="5.8830724" y="4.784916" width="8.044693" height="2.4301677" speed="0.001"/>
+<cloud x="59.377464" y="11.88771" width="5.027933" height="1.424581" speed="0.001"/>
 </environment>
 <sensor>
 <thermometer uid="THERMOMETER23" x="31.0" y="48.5"/>
@@ -798,6 +790,6 @@
 <color_palette_type>0</color_palette_type>
 <brand>false</brand>
 <color_palette_x>0.0</color_palette_x><color_palette_y>0.0</color_palette_y><color_palette_w>0.0</color_palette_w><color_palette_h>0.0</color_palette_h><minimum_temperature>-10.0</minimum_temperature>
-<maximum_temperature>40.0</maximum_temperature>
+<maximum_temperature>10.0</maximum_temperature>
 <fan_rotation_speed_scale_factor>1.0</fan_rotation_speed_scale_factor><graph_xlabel>Time (hr)</graph_xlabel><graph_ylabel>Temperature (℃)</graph_ylabel></view>
 </state>
