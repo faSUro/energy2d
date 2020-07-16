@@ -336,6 +336,19 @@ public class System2D extends JApplet implements ManipulationListener {
         threadService.execute(r);
     }
 
+    void submitAndGetInThreadService(Runnable r) {
+        if (threadService == null)
+            threadService = Executors.newFixedThreadPool(1);
+        Future<?> future = threadService.submit(r);
+        try {
+            future.get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void run() {
         view.setRunToggle(true);
         executeInThreadService(() -> model.run());
@@ -363,17 +376,7 @@ public class System2D extends JApplet implements ManipulationListener {
      * @param n number of steps to run
      */
     public void runSteps(final int n) {
-        if (threadService == null)
-            threadService = Executors.newFixedThreadPool(1);
-
-        Future<?> future = threadService.submit(() -> model.runSteps(n));
-        try {
-            future.get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
+        submitAndGetInThreadService(() -> model.runSteps(n));
     }
 
     public void stop() {
