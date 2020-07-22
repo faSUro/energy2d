@@ -12,7 +12,7 @@
 	<condition property="JAVA_HOME" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home">
 		<os family="mac" />
 	</condition>
-	<condition property="JAVA_HOME" value="usr/lib/jvm/jdk1.8.0_261/">
+	<condition property="JAVA_HOME" value="/usr/lib/jvm/jdk1.8.0_261/">
 		<os family="unix" />
 	</condition>
 	
