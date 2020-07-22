@@ -6,13 +6,13 @@
 	<property name="build.classes.dir" value="classes" />
 	<property name="build.dist.dir" value="C:\dist" />
 	
-	<condition property="JAVA_HOME" value="C:\Program Files (x86)\Java\jdk1.8.0_202\">
+	<condition property="JAVA_HOME" value="C:\Program Files\Java\jdk1.8.0_261\">
 		<os family="windows" />
 	</condition>
 	<condition property="JAVA_HOME" value="/Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home">
 		<os family="mac" />
 	</condition>
-	<condition property="JAVA_HOME" value="">
+	<condition property="JAVA_HOME" value="usr/lib/jvm/jdk1.8.0_261/">
 		<os family="unix" />
 	</condition>
 	
@@ -135,10 +135,8 @@
 
 	<target name="clean">
 		<mkdir dir="${build.classes.dir}" />
-		<mkdir dir="${build.dist.dir}" />
 		<delete>
 			<fileset dir="${build.classes.dir}" includes="**/*" />
-			<fileset dir="${build.dist.dir}" includes="**/*" />
 		</delete>
 	</target>
 </project>

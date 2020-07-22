@@ -1022,7 +1022,7 @@ public class System2D extends JApplet implements ManipulationListener {
         });
     }
 
-    public static final String TEMP_FILES_FOLDER = "energy2d/temp/";
+    public static final String TEMP_FILES_FOLDER = "../temp/";
 
     private static void emptyTempFiles() {
         File tempFilesDir = new File(TEMP_FILES_FOLDER);
@@ -1031,7 +1031,7 @@ public class System2D extends JApplet implements ManipulationListener {
         }
     }
 
-    private static final String CONDOSIM_PATH = "energy2d/condosim/condosim.e2d";
+    private static final String CONDOSIM_PATH = "../condosim/condosim.e2d";
 
     private static void start(final String[] args) {
 

@@ -1,19 +1,23 @@
-## Under the hood...
+# How to run Energy2D from scratch (UNIX only)
 
-- [Numerical Algorithms for Simulating Three Modes of Heat Transfer](https://medium.com/@charlesxie/numerical-algorithms-for-simulating-three-modes-of-heat-transfer-e65fca9baf50)
+## Prerequisites
 
-- [Coupled Fluid-Particle Dynamics](https://medium.com/@charlesxie/coupled-fluid-particle-dynamics-a56647e68d75)
+- Having a clone of the Energy2D repository.
 
-- [Comparison with Infrared Imaging](https://medium.com/@charlesxie/visualizing-thermal-equilibration-infrared-imaging-vs-energy2d-simulation-cfa01e60b530)
+- Having Apache Ant installed (command: sudo apt-get install ant).
 
-- [Running on Raspberry Pi](https://medium.com/@charlesxie/computational-fluid-dynamics-on-the-incredible-raspberry-pi-85cbbb46237c)
+- Having the latest Java 8 release (jdk1.8.0_261) installed inside the directory "/usr/lib/jvm/". In case you have a 
+  different release (it must be Java 8 anyway) or a different directory for the JDK, you will need to change the path
+  at line 15 of the "energy2d/build.xml" file.
+  
+## Create and run energy2d.jar from command line
 
+1. Get inside "energy2d" directory
 
-## How to cite it?
+2. Execute command: ant compile
 
-Charles Xie, Interactive Heat Transfer Simulations for Everyone, The Physics Teacher, Volume 50, Issue 4, pp. 237-240, 2012.
+3. Execute command: ant jar
 
+4. Execute command: java -jar exe/energy2d.jar
 
-## Acknowledgement
-
-This open-source program was initially supported by the National Science Foundation (NSF) of the United States under grant numbers 0918449, 1124281, and 1512868. Neither the NSF nor the developer, however, provides any sort of warranty for this program.
+**WARNING: do not try to move the jar or Energy2D won't start!**
