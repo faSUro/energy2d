@@ -5,11 +5,11 @@
 <model>
 <model_width>60.0</model_width>
 <model_height>60.0</model_height>
-<timestep>10.0</timestep>
+<timestep>6.0</timestep>
 <tasks>
 <task uid="MOVE_SUN" script="set sunny true;-linebreak-movesun;" description="Move the sun" interval="100"/>
 </tasks>
-<sunny>true</sunny><sun_angle>-0.6399536</sun_angle>
+<sunny>true</sunny><sun_angle>-1.5707963</sun_angle>
 <solar_power_density>10000.0</solar_power_density>
 <solar_ray_count>24</solar_ray_count>
 <solar_ray_speed>0.01</solar_ray_speed>
@@ -24,21 +24,6 @@
 <mass_flow_at_border upper="0" lower="0" left="0" right="0"/>
 </boundary>
 <structure>
-<part>
-<rectangle x="0.0" y="56.0" width="60.0" height="4.0"/><elasticity>1.0</elasticity>
-<thermal_conductivity>0.8</thermal_conductivity>
-<specific_heat>1300.0</specific_heat>
-<density>2900.0</density>
-<transmission>0.0</transmission>
-<reflection>0.0</reflection>
-<scattering>false</scattering>
-<scattering_visible>false</scattering_visible>
-<absorption>1.0</absorption>
-<emissivity>0.0</emissivity>
-<temperature>15.0</temperature>
-<constant_temperature>true</constant_temperature>
-<color>0</color>
-</part>
 <part>
 <rectangle x="13.2" y="52.375" width="0.6" height="2.25"/><elasticity>1.0</elasticity>
 <thermal_conductivity>0.8</thermal_conductivity>
@@ -390,7 +375,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER24</uid>
 <color>0</color>
 </part>
@@ -407,7 +391,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER14</uid>
 <color>0</color>
 </part>
@@ -440,7 +423,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER44</uid>
 <color>0</color>
 </part>
@@ -489,7 +471,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER13</uid>
 <color>0</color>
 </part>
@@ -522,7 +503,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER22</uid>
 <color>0</color>
 </part>
@@ -555,7 +535,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER42</uid>
 <color>0</color>
 </part>
@@ -572,7 +551,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER41</uid>
 <color>0</color>
 </part>
@@ -621,7 +599,6 @@
 <emissivity>0.0</emissivity>
 <temperature>20.0</temperature>
 <constant_temperature>false</constant_temperature>
-<power>100.0</power>
 <uid>HEATER11</uid>
 <color>0</color>
 </part>
@@ -725,7 +702,7 @@
 <color>666666</color>
 </part>
 <part>
-<rectangle x="12.5" y="56.0" width="35.0" height="2.0"/><elasticity>1.0</elasticity>
+<rectangle x="0.0" y="56.0" width="60.0" height="4.0"/><elasticity>1.0</elasticity>
 <thermal_conductivity>0.8</thermal_conductivity>
 <specific_heat>1000.0</specific_heat>
 <density>2400.0</density>
@@ -735,9 +712,8 @@
 <scattering_visible>false</scattering_visible>
 <absorption>1.0</absorption>
 <emissivity>0.0</emissivity>
-<temperature>16.0</temperature>
+<temperature>10.0</temperature>
 <constant_temperature>false</constant_temperature>
-<label>BASEMENT</label>
 </part>
 <part>
 <polygon count="3" vertices="13.199999, 35.7, 46.800003, 35.7, 30.0, 29.099998"/>
@@ -757,8 +733,8 @@
 </part>
 </structure>
 <environment>
-<cloud x="5.8830724" y="4.784916" width="8.044693" height="2.4301677" speed="0.001"/>
-<cloud x="59.377464" y="11.88771" width="5.027933" height="1.424581" speed="0.001"/>
+<cloud x="46.714573" y="4.784916" width="8.044693" height="2.4301677" speed="0.001"/>
+<cloud x="37.867905" y="11.88771" width="5.027933" height="1.424581" speed="0.001"/>
 </environment>
 <sensor>
 <thermometer uid="THERMOMETER23" x="31.0" y="48.5"/>
