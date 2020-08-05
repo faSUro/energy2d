@@ -1015,14 +1015,14 @@ public class System2D extends JApplet implements ManipulationListener {
     }
 
     public static void main(final String[] args) {
-        emptyTempFiles(); //empty the temporary files folder at every boot
+        //emptyTempFiles(); //empty the temporary files folder at every boot
         EventQueue.invokeLater(() -> {
             start(args);
             Updater.download(box);
         });
     }
 
-    public static final String TEMP_FILES_FOLDER = "../temp/";
+    public static final String TEMP_FILES_FOLDER = "temp/";
 
     private static void emptyTempFiles() {
         File tempFilesDir = new File(TEMP_FILES_FOLDER);
@@ -1031,7 +1031,7 @@ public class System2D extends JApplet implements ManipulationListener {
         }
     }
 
-    private static final String CONDOSIM_PATH = "../condosim/condosim.e2d";
+    private static final String CONDOSIM_PATH = "condosim/condosim.e2d";
 
     private static void start(final String[] args) {
 
