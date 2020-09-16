@@ -30,7 +30,7 @@ E.g.: a valid UID for a thermometer could be "THERMOMETER100", while "THERMO100"
 
 - **runsteps {steps}**
 
-  Makes the simulation run for the given number of steps (it must be an int). Returns a message like "Simulation running *X* steps.", where *X* is the argument of the runsteps command.
+  Makes the simulation run for the given number of steps (it must be an int). Returns a message like "Simulation ran *X* steps."  when the simulation will be done, where *X* is the argument of the runsteps command.
 
 - **stop**
 
@@ -43,7 +43,7 @@ E.g.: a valid UID for a thermometer could be "THERMOMETER100", while "THERMO100"
 - **get {element}.{property}**
 
   Returns the property value of the selected element. 
-  The element is indicated by its UID, with the possibility to use a keyword that refers to all of the elements of a given type.
+  The element is indicated by its UID, with the possibility to use a keyword that refers to all the elements of a given type.
   The property must be one possessed by the indicated element.
   
   E.g.: 
